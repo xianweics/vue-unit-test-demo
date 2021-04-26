@@ -1,12 +1,17 @@
 import { shallowMount } from "@vue/test-utils";
 import HelloWorld from "@/components/HelloWorld.vue";
 
+const src = "./logo.png";
 describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
+  it("passed", () => {
     const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg },
+      propsData: {
+        src
+      }
     });
-    expect(wrapper.text()).toMatch(msg);
+    expect(wrapper.html()).toBe(`<img src="./logo.png">`);
   });
 });
+/**
+ * https://stackoverflow.com/questions/54808134/test-logo-component-in-react-jest
+ */
